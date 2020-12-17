@@ -9,14 +9,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace db_version
 {
     public partial class Form1 : Form
     {
-        static Squad loadedSquad = new Squad();
-        // initialize full list of missions - Mission.fullList
-        // initialize list of available missions
+        static Squad loadedSquad = new Squad();       
+        
 
         public Form1()
         {
@@ -25,6 +26,8 @@ namespace db_version
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Missions missionList = LoadMissionList();
+
             if (File.Exists(@".\savefile.xml")) 
             { 
                 loadedSquad = Squad.LoadSquad();
@@ -69,7 +72,6 @@ namespace db_version
             
         }
 
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             Squad dump = new Squad();
@@ -101,6 +103,21 @@ namespace db_version
         {
             loadedSquad.DateSaved = DateTime.Now;
             Squad.SaveSquad(loadedSquad);
+        }
+
+        static Missions LoadMissionList()
+        {
+            using (TextReader reader = new StreamReader("missions.xml"))
+            {
+                XmlSerializer deserializer = new XmlSerializer(typeof(Missions));
+                return (Missions)deserializer.Deserialize(reader);
+            }/*
+            XmlSerializer deserializer = new XmlSerializer(typeof(Missions));
+            TextReader reader = new StreamReader(@".\missions.xml");
+            object obj = deserializer.Deserialize(reader);
+            Missions XmlData = (Missions)obj;
+            reader.Close();
+            return XmlData;*/
         }
     }
 }

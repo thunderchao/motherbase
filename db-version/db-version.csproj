@@ -111,5 +111,10 @@
   <ItemGroup>
     <None Include="Resources\observatory.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="missions.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MissionList>
+  <!-- here is the template:
+  <Mission>
+    <Id></Id>
+    <Name></Name>
+    <Requirement></Requirement>
+    <MainStat></MainStat>
+    <TotalTime></TotalTime>
+    <Danger></Danger>
+    <Xp></Xp>
+    <Rewards></Rewards>
+    <Completed></Completed>
+    <Repeatable></Repeatable>
+  </Mission>
+  -->
+  <Mission>
+    <Id>001</Id>
+    <Name>Obtain a helicopter</Name>
+    <Requirement>none</Requirement>
+    <MainStat>Vehicles</MainStat>
+    <TotalTime>1</TotalTime>
+    <Danger>Green</Danger>
+    <Xp>10</Xp>
+    <Rewards>Helicopter, 1</Rewards>
+    <Completed>false</Completed>
+    <Repeatable>false</Repeatable>
+  </Mission>
+  <Mission>
+    <Id>002</Id>
+    <Name>Recruit a second soldier</Name>
+    <Requirement>none</Requirement>
+    <MainStat>any</MainStat>
+    <TotalTime>1</TotalTime>
+    <Danger>Green</Danger>
+    <Xp>10</Xp>
+    <Rewards>Soldier, 1</Rewards>
+    <Completed>false</Completed>
+    <Repeatable>false</Repeatable>
+  </Mission>
+  <Mission>
+    <Id>003</Id>
+    <Name>Heist: necessary materials</Name>
+    <Requirement>Helicopter</Requirement>
+    <MainStat>Sneak</MainStat>
+    <TotalTime>5</TotalTime>
+    <Danger>Yellow</Danger>
+    <Xp>10</Xp>
+    <Rewards>Construction materials, 20</Rewards>
+    <Completed>false</Completed>
+    <Repeatable>true</Repeatable>
+  </Mission>
+</MissionList>

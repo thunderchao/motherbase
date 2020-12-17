@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace db_version
 {
@@ -15,7 +18,7 @@ namespace db_version
         public int TotalTime { get; set; }
         public string Danger { get; set; }
         public int Xp { get; set; }
-        public List<InventoryItem> Rewards { get; set; } //trick to figure this one out
+        public InventoryItem Reward { get; set; }
         public bool Completed { get; set; }
         public bool Repeatable { get; set; }
 
@@ -24,18 +27,23 @@ namespace db_version
             this.Id = Id;
             this.Name = Name;
             this.Requirement = Requirement;
+            this.MainStat = MainStat;
             this.TotalTime = TotalTime;
             this.Danger = Danger;
             this.Xp = Xp;
             this.Repeatable = Repeatable;
         }
+    }
 
-        public static List<Mission> fullList = new List<Mission>()
+    [XmlRootAttribute("MissionList")]
+    public class Missions
+    {
+        [XmlElement("Mission")]
+        public Mission[] MissionList { get; set; }
+
+        public Missions()
         {
-            new Mission(001, "Obtain a helicopter", "none", "Vehicles", 1, "Green", 10, false),
-            new Mission(002, "Recruit a new soldier", "none", "any", 1, "Green", 10, true),
-            new Mission(003, "Heist: necessary materials", "helicopter", "Sneak", 5, "Yellow", 10, true)
-        };
-
+            this.MissionList = MissionList;
+        }
     }
 }
