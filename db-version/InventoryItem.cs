@@ -10,5 +10,17 @@ namespace db_version
     {
         public string Name { get; set; }
         public int Quantity { get; set; }
+
+        public InventoryItem(string name, int quantity)
+        {
+            this.Name = name;
+            this.Quantity = quantity;
+        }
+        public InventoryItem()
+        {
+            this.Name = "x";
+            this.Quantity = 0;
+        }
     }
+
 }

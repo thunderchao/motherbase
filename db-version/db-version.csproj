@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="InventoryItem.cs" />
     <Compile Include="Mission.cs" />
+    <Compile Include="RunMission.cs" />
     <Compile Include="Squad.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

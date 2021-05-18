@@ -18,11 +18,11 @@ namespace db_version
         public int TotalTime { get; set; }
         public string Danger { get; set; }
         public int Xp { get; set; }
-        public InventoryItem Reward { get; set; }
+        public string Rewards { get; set; }
         public bool Completed { get; set; }
         public bool Repeatable { get; set; }
 
-        public Mission(int Id, string Name, string Requirement, string MainStat, int TotalTime, string Danger, int Xp, bool Repeatable)
+        public Mission(int Id, string Name, string Requirement, string MainStat, int TotalTime, string Danger, int Xp, string Reward, bool Repeatable)
         {
             this.Id = Id;
             this.Name = Name;
@@ -31,8 +31,10 @@ namespace db_version
             this.TotalTime = TotalTime;
             this.Danger = Danger;
             this.Xp = Xp;
+            this.Rewards = Reward;
             this.Repeatable = Repeatable;
         }
+        private Mission() { }
     }
 
     [XmlRootAttribute("MissionList")]
@@ -43,7 +45,7 @@ namespace db_version
 
         public Missions()
         {
-            this.MissionList = MissionList;
+            MissionList = MissionList;
         }
     }
 }
